@@ -8,11 +8,6 @@ h1, h2, h3, body, button {
   color: #444E50;
 }
 
-.vertical-center {
-  position: fixed;
-  top: 50%;
-}
-
 .scroll-content#imagebg {
   background: url('../img/flowers_in_a_jar.jpg');
   background-repeat: no-repeat;
