@@ -4,6 +4,10 @@ h1, h2, h3, body, button {
   font-family: 'Raleway', sans-serif;
 }
 
+h1 {
+  font-weight: 600;
+}
+
 .start {
   color: #444E50;
 }
