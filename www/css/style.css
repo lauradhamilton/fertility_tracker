@@ -19,11 +19,12 @@ h1 {
   background-position: center;
 }
 
-/* Change the default button color to a nice reddish orange */
+/* Change the default button color to a nice reddish pink */
 .button.button-energized {
-  background-color: #F34F20;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
+
+
