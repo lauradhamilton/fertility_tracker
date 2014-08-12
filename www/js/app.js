@@ -30,6 +30,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       controller: 'StartCtrl'
     })
 
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'templates/signup.html',
+      controller: 'SignupCtrl'
+    })
+
     .state('app', {
       url: "/app",
       abstract: true,

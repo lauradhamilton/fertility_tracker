@@ -3,6 +3,9 @@ angular.module('starter.controllers', [])
 .controller('StartCtrl', function($scope, Start) {
 })
 
+.controller('SignupCtrl', function($scope, Signup) {
+})
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
