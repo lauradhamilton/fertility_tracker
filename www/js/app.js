@@ -1,72 +1,108 @@
-// Ionic Starter App
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'firebase'])
+'use strict';
+
+angular.module('starter', [
+  'ionic',
+  'firebase',
+  'starter.services',
+  'starter.directives',
+  'starter.controllers'
+])
 .config(function($stateProvider, $urlRouterProvider) {
-// Ionic uses AngularUI Router which uses the concept of states
-// Learn more here: https://github.com/angular-ui/ui-router
-// Set up the various states which the app can be in.
-// Each state's controller can be found in controllers.js
-$stateProvider
-// setup an abstract state for the tabs directive
-.state('splash', {
-url: "/",
-templateUrl: "templates/splash.html"
+  var resolve = {
+    auth: function($q, $timeout, Auth, User) {
+      var defer = $q.defer();
+      var state = this;
+
+      Auth.getCurrentUser().then(function() {
+        User.loadCurrentUser().then(function() {
+          if (state.name === 'change-password') {
+            defer.resolve();
+          } else {
+            if (User.hasChangedPassword()) {
+              defer.resolve();
+            } else {
+              defer.reject('change-password');
+            }
+          }
+        });
+      }, function() {
+        $timeout(function() { // See: http://stackoverflow.com/q/24945731/247243
+          defer.reject('login');
+        }, 250);
+      });
+
+      return defer.promise;
+    }
+  };
+
+  $stateProvider
+    .state('splash', {
+      url: '/splash',
+      templateUrl: 'templates/splash.html',
+      controller: 'SplashCtrl'
+    })
+    .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'sidemenu/sidemenu.html',
+      controller: 'SideMenuCtrl'
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: 'templates/signup.html',
+      controller: 'SignupCtrl'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'login/login.html',
+      controller: 'LoginCtrl'
+    })
+    .state('reset-password', {
+      url: '/reset-password',
+      templateUrl: 'reset-password/reset-password.html',
+      controller: 'ResetPasswordCtrl'
+    })
+    .state('change-password', {
+      url: '/change-password',
+      templateUrl: 'change-password/change-password.html',
+      controller: 'ChangePasswordCtrl',
+      resolve: resolve
+    })
+    .state('app.dashboard', {
+      url: '/dashboard', 
+      views: {
+        menuContent: {
+          templateUrl: 'dashboard/dashboard.html',
+          controller: 'DashboardCtrl',
+          resolve: resolve
+        }
+      }
+    });
+
+  $urlRouterProvider.otherwise('/app/dashboard');
 })
-.state('login', {
-url: "/login",
-templateUrl: "templates/login.html",
-controller: 'LoginCtrl'
+.run(function($rootScope, $state, $ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory 
+    // bar above the keyboard for form inputs)
+    if (window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, 
+                                                 fromState, fromParams, error) {
+      $state.go(error);
+    });
+  });
 })
-.state('signup', {
-url: '/signup',
-templateUrl: 'templates/signup.html',
-controller: 'SignupCtrl'
-})
-// the pet tab has its own child nav-view and history
-.state('home_landing', {
-url: '/home',
-templateUrl: 'templates/home.html',
-controller: 'HomeCtrl'
-});
-// if none of the above states are matched, use this as the fallback
-$urlRouterProvider.otherwise('/');
-})
-.run(function($rootScope, $firebaseSimpleLogin, $state, $window) {
-var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
-var loginObj = $firebaseSimpleLogin(dataRef);
-loginObj.$getCurrentUser().then(function(user) {
-if(!user){
-// Might already be handled by logout event below
-$state.go('login');
-}
-}, function(err) {
-});
-$rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
-$state.go('home_landing');
-});
-$rootScope.$on('$firebaseSimpleLogin:logout', function(e, user) {
-console.log($state);
-$state.go('login');
-});
-})
-.controller('LoginCtrl', function($scope, $firebaseSimpleLogin) {
-$scope.loginData = {};
-var dataRef = new Firebase("https://ionic-firebase-login.firebaseio.com/");
-$scope.loginObj = $firebaseSimpleLogin(dataRef);
-$scope.tryLogin = function() {
-$scope.loginObj.$login('facebook').then(function(user) {
-// The root scope event will trigger and navigate
-}, function(error) {
-// Show a form error here
-console.error('Unable to login', error);
-});
-};
-})
-.controller('SignupCtrl', function($scope) {
-})
-.controller('HomeCtrl', function($scope) {
-});
+.constant('FIREBASE_ROOT', 'https://fertility-tracker.firebaseio.com');
+
+angular.module('starter.services', []);
+angular.module('starter.directives', []);
+angular.module('starter.controllers', []);
+
