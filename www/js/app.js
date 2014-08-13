@@ -80,7 +80,8 @@ angular.module('starter', [
     })
     .state('home', {
       url: '/home',
-      templateUrl: '/templates/home'
+      templateUrl: '/templates/home.html',
+      controller: 'HomeCtrl'
     });
 
   $urlRouterProvider.otherwise('/app/dashboard');

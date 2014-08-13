@@ -20,7 +20,8 @@ angular.module('starter.controllers').controller('SignupCtrl',
 
       createAuthUser().then(login)
                       .then(createMyAppUser)
-                      .then(goToHome)
+                      .then($state.go('home'))
+                      .then($ionicLoading.hide())
                       .catch(handleError);
     };
 
