@@ -23,10 +23,7 @@ angular.module('starter.controllers').controller('LoginCtrl',
 
     function redirectBasedOnStatus() {
       $ionicLoading.hide();
-      
-      if (User.hasChangedPassword()) {
-        $state.go('home');
-      }
+      $state.go('home');
     }
 
     function handleError(error) {
