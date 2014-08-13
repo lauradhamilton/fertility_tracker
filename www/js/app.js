@@ -54,7 +54,7 @@ angular.module('starter', [
     })
     .state('login', {
       url: '/login',
-      templateUrl: 'login/login.html',
+      templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
     })
     .state('reset-password', {
@@ -77,6 +77,10 @@ angular.module('starter', [
           resolve: resolve
         }
       }
+    })
+    .state('home', {
+      url: '/home',
+      templateUrl: '/templates/home'
     });
 
   $urlRouterProvider.otherwise('/app/dashboard');

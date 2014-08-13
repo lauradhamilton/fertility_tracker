@@ -3,11 +3,12 @@
 angular.module('starter.controllers').controller('SignupCtrl',
  
   function($scope, $q, $state, $ionicLoading, Auth, User, Signup) {
-    var password = Signup.randomPassword();
 
     $scope.user = {
-      email: ''
+      email: '',
+      password: ''
     };
+
     $scope.errorMessage = null;
 
     $scope.signup = function() {
@@ -17,15 +18,14 @@ angular.module('starter.controllers').controller('SignupCtrl',
         template: 'Please wait...'
       });
 
-      createAuthUser().then(sendPasswordResetEmail)
-                      .then(login)
+      createAuthUser().then(login)
                       .then(createMyAppUser)
-                      .then(goToChangePassword)
+                      .then(goToHome)
                       .catch(handleError);
     };
 
     function createAuthUser() {
-      return Auth.createUser($scope.user.email, password);
+      return Auth.createUser($scope.user.email, $scope.user.password);
     }
 
     function sendPasswordResetEmail(authUser) {
@@ -39,7 +39,7 @@ angular.module('starter.controllers').controller('SignupCtrl',
     }
 
     function login(authUser) {
-      return Auth.login(authUser.email, password);
+      return Auth.login($scope.user.email, $scope.user.password);
     }
 
     function createMyAppUser(authUser) {
@@ -49,6 +49,10 @@ angular.module('starter.controllers').controller('SignupCtrl',
     function goToChangePassword() {
       $ionicLoading.hide();
       $state.go('change-password');
+    }
+
+    function goToHome() {
+      $state.go('home');
     }
 
     function handleError(error) {

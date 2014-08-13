@@ -25,9 +25,7 @@ angular.module('starter.controllers').controller('LoginCtrl',
       $ionicLoading.hide();
       
       if (User.hasChangedPassword()) {
-        $state.go('app.dashboard');
-      } else {
-        $state.go('change-password');
+        $state.go('home');
       }
     }
 
