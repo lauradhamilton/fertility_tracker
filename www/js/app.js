@@ -83,9 +83,9 @@ angular.module('starter', [
       templateUrl: '/templates/home.html',
       controller: 'HomeCtrl'
     })
-    .state('enter_data', {
-      url: '/enter_data',
-      templateUrl: '/templates/enter_data.html',
+    .state('enter-data', {
+      url: '/enter-data',
+      templateUrl: '/templates/enter-data.html',
       controller: 'EnterDataCtrl'
     });
 
