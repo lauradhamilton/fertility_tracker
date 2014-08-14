@@ -89,7 +89,7 @@ angular.module('starter', [
       controller: 'EnterDataCtrl'
     });
 
-  $urlRouterProvider.otherwise('/app/dashboard');
+  $urlRouterProvider.otherwise('/splash');
 })
 .run(function($rootScope, $state, $ionicPlatform) {
   $ionicPlatform.ready(function() {
