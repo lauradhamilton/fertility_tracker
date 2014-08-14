@@ -4,6 +4,13 @@ angular.module('starter.controllers').controller('SignupCtrl',
  
   function($scope, $q, $state, $ionicLoading, Auth, User, Signup) {
 
+    $scope.months_trying = [
+      {"number":1},
+      {"number":2},
+      {"number":3},
+      {"number":4}
+    ];
+
     $scope.user = {
       email: '',
       password: ''
