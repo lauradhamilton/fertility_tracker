@@ -2,4 +2,22 @@
   <h1 class="title">{{date | date:'fullDate'}}</h1>
 </div>
 
-Please enter your data!
+<ion-content>
+  <div style="margin-top: 80px" ng-controller="EnterDataCtrl">
+    Please enter your data!
+    <ul class="list">
+      <label class="item item-input">
+        <span class="input-label">Temperature (F)</span>
+        <input type="tel">
+      </label>
+      <ion-toggle ng-model="OPK" toggle-class="toggle-calm">OPK</ion-toggle>
+      <label class="item item-icon-right">
+        <select novalidate="" ng-model="cm" ng-options="cm for cm in cm" style="opacity:0; width:100%; position:absolute; z-index: 100">
+          <option value=""></option>
+        </select>
+        <span class="input-label">Cervical Fluid</span>
+          <i class="icon ion-ios7-arrow-down"></i>
+      </label>
+    </ul>
+  </div>
+</ion-content>
