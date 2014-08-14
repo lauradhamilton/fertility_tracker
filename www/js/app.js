@@ -82,6 +82,11 @@ angular.module('starter', [
       url: '/home',
       templateUrl: '/templates/home.html',
       controller: 'HomeCtrl'
+    })
+    .state('enter_data', {
+      url: '/enter_data',
+      templateUrl: '/templates/enter_data.html',
+      controller: 'EnterDataCtrl'
     });
 
   $urlRouterProvider.otherwise('/app/dashboard');
