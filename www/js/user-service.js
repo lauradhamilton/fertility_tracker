@@ -15,11 +15,14 @@ angular.module('starter.services').service('User',
       return defer.promise;
     };
 
-    this.create = function(id, email, first_name) {
+    this.create = function(id, email, trying_to_conceive, irregular_cycles, months_trying, first_name) {
       var users = $firebase(usersRef);
 
       return users.$child(id).$set({
         email: email,
+        trying_to_conceive: trying_to_conceive,
+        irregular_cycles: irregular_cycles,
+        months_trying: "FIXME",
         first_name: first_name
         });
     };

@@ -9,6 +9,9 @@ angular.module('starter.controllers').controller('SignupCtrl',
     $scope.user = {
       email: '',
       password: '',
+      trying_to_conceive: '',
+      irregular_cycles: '',
+      months_trying: '',
       first_name: ''
     };
 
@@ -29,7 +32,13 @@ angular.module('starter.controllers').controller('SignupCtrl',
     };
 
     function createAuthUser() {
-      return Auth.createUser($scope.user.email, $scope.user.password, $scope.user.first_name);
+      return Auth.createUser(
+        $scope.user.email,
+        $scope.user.password,
+        $scope.user.trying_to_conceive,
+        $scope.user.irregular_cycles,
+        $scope.user.months_trying,
+        $scope.user.first_name);
     }
 
     function sendPasswordResetEmail(authUser) {
@@ -47,7 +56,13 @@ angular.module('starter.controllers').controller('SignupCtrl',
     }
 
     function createMyAppUser(authUser) {
-      return User.create(authUser.uid, authUser.email, $scope.user.first_name);
+      return User.create(
+        authUser.uid,
+        authUser.email,
+        $scope.user.trying_to_conceive,
+        $scope.user.irregular_cycles,
+        $scope.user.months_trying,
+        $scope.user.first_name);
     }
 
     function goToChangePassword() {
