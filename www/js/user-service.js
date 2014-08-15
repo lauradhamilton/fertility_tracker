@@ -27,6 +27,11 @@ angular.module('starter.services').service('User',
         });
     };
 
+    this.enter_data = function() {
+      var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/simplelogin:53/date')
+      return dateRef.$set({wtf: 'WTF'})
+    };
+
     this.recordPasswordChange = function() {
       var now = Math.floor(Date.now() / 1000);
       
