@@ -1,9 +1,9 @@
-<div class="bar bar-header bar-stable" ng-controller="EnterDataCtrl">
+<div class="bar bar-header bar-stable">
   <h1 class="title">{{date | date:'fullDate'}}</h1>
 </div>
 
 <ion-content>
-  <div style="margin-top: 80px" ng-controller="EnterDataCtrl">
+  <div style="margin-top: 80px">
     Please enter your data!
     <ul class="list">
       <label class="item item-input">
@@ -17,6 +17,11 @@
         </select>
         <span class="input-label">Cervical Fluid</span>
           <i class="icon ion-ios7-arrow-down"></i>
+      </label>
+      <label class="item item-input">
+        <button class ="button button-block button-energized" style="margin-right: 15px" ng-click="enter_daily_data()">
+          Submit
+        </button>
       </label>
     </ul>
   </div>
