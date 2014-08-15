@@ -22,7 +22,7 @@ angular.module('starter.services').service('User',
         email: email,
         trying_to_conceive: trying_to_conceive,
         irregular_cycles: irregular_cycles,
-        months_trying: "FIXME",
+        months_trying: months_trying,
         first_name: first_name
         });
     };
