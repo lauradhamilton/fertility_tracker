@@ -1,5 +1,5 @@
 <div class="bar bar-header bar-stable">
-  <h1 class="title">{{date | date:'fullDate'}}</h1>
+  <h1 class="title">{{data_date | date:'fullDate'}}</h1>
 </div>
 
 <ion-content>
@@ -7,15 +7,15 @@
     Please enter your data!
     <ul class="list">
       <label class="item item-input">
-        <span class="input-label">Temperature (F)</span>
+        <span class="input-label" ng-model="date.temperature">Temperature (F)</span>
         <input type="tel">
       </label>
-      <ion-toggle ng-model="OPK" toggle-class="toggle-calm">OPK</ion-toggle>
+      <ion-toggle ng-model="date.opk" toggle-class="toggle-calm">OPK</ion-toggle>
       <label class="item item-icon-right">
         <select novalidate="" ng-model="cm_options" ng-options="cm_options for cm_options in cm_options" style="opacity:0; width:100%; position:absolute; z-index: 100">
           <option value=""></option>
         </select>
-        <span class="input-label">Cervical Fluid</span>
+        <span class="input-label" ng-model="date.cm">Cervical Fluid</span>
           <i class="icon ion-ios7-arrow-down"></i>
       </label>
       <label class="item item-input">
