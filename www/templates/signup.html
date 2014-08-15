@@ -8,7 +8,7 @@
   <li class="item item-toggle">
      I am trying to get pregnant
      <label class="toggle">
-       <input type="checkbox">
+       <input type="checkbox" ng-model="user.trying_to_conceive">
        <div class="track">
          <div class="handle"></div>
        </div>
@@ -17,7 +17,7 @@
   <li class="item item-toggle">
      Irregular cycles
      <label class="toggle">
-       <input type="checkbox">
+       <input type="checkbox" ng-model="user.irregular_cycles">
        <div class="track">
          <div class="handle"></div>
        </div>
@@ -27,7 +27,7 @@
 
 <label class="item item-icon-right" style="margin-top: -22px">
 <div ng-controller="SignupCtrl">
-    <select novalidate="" style="opacity:0; width:100%; position:absolute; z-index: 100" ng-model="month" ng-options="month for month in months_trying">
+    <select novalidate="" style="opacity:0; width:100%; position:absolute; z-index: 100" ng-model="user.months_trying" ng-options="month for month in months_trying">
       <option value="">Select...</option>
     </select>
   </div>
@@ -36,7 +36,7 @@
 </label>
 
 <label class="item item-input">
-  <input type="text" placeholder="First Name" ng-model="loginData.name">
+  <input type="text" placeholder="First Name" ng-model="user.first_name">
 </label>
 
 <label class="item item-input">

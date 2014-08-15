@@ -8,7 +8,8 @@ angular.module('starter.controllers').controller('SignupCtrl',
 
     $scope.user = {
       email: '',
-      password: ''
+      password: '',
+      first_name: ''
     };
 
     $scope.errorMessage = null;
@@ -28,7 +29,7 @@ angular.module('starter.controllers').controller('SignupCtrl',
     };
 
     function createAuthUser() {
-      return Auth.createUser($scope.user.email, $scope.user.password);
+      return Auth.createUser($scope.user.email, $scope.user.password, $scope.user.first_name);
     }
 
     function sendPasswordResetEmail(authUser) {
@@ -46,7 +47,7 @@ angular.module('starter.controllers').controller('SignupCtrl',
     }
 
     function createMyAppUser(authUser) {
-      return User.create(authUser.uid, authUser.email);
+      return User.create(authUser.uid, authUser.email, $scope.user.first_name);
     }
 
     function goToChangePassword() {

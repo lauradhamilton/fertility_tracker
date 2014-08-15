@@ -15,10 +15,13 @@ angular.module('starter.services').service('User',
       return defer.promise;
     };
 
-    this.create = function(id, email) {
+    this.create = function(id, email, first_name) {
       var users = $firebase(usersRef);
 
-      return users.$child(id).$set({ email: email });
+      return users.$child(id).$set({
+        email: email,
+        first_name: first_name
+        });
     };
 
     this.recordPasswordChange = function() {
