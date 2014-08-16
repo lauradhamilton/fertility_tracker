@@ -12,12 +12,15 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       opk: '',
       cm: ''};
 
-    $scope.enter_daily_data = User.enter_data(
-      Date(),
-      $scope.date.temperature,
-      $scope.date.opk,
-      $scope.date.cm
-    );
+    $scope.enter_daily_data = function() {
+      User.enter_data(
+        Date(),
+        $scope.date.temperature,
+        $scope.date.opk,
+        $scope.date.cm
+      )
+      $state.go('home');
+    };
 
   }
 );
