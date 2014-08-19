@@ -14,7 +14,6 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
 
     $scope.enter_daily_data = function() {
       User.enter_data(
-        12,
         Date(),
         $scope.date.temperature,
         $scope.date.opk,
