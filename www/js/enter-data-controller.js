@@ -9,8 +9,8 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
     var data_date_day = parseInt($stateParams.date.substring(7,8));
     $scope.data_date = new Date(data_date_year, data_date_month, data_date_day);
 
-    var previous_date = $scope.data_date - 1000*60*60*24;
-    var next_date = $scope.data_date + 1000*60*60*24;
+    var previous_date = $filter('date') (new Date(data_date_year, data_date_month, data_date_day -1), 'yyyymmdd');
+    var next_date = $filter('date') (new Date(data_date_year, data_date_month, data_date_day + 1), 'yyyymmdd');
 
     $scope.cm_options = ['Sticky','Creamy','Egg White','Watery'];
 
