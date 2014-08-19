@@ -3,7 +3,7 @@
 angular.module('starter.controllers').controller('EnterDataCtrl',
 
   function($scope, $stateParams, $q, $state, $ionicLoading, $firebase, $filter, FIREBASE_ROOT, Auth, User, Signup){
-    $scope.data_date = new Date();
+    $scope.data_date = $stateParams.date;
     $scope.cm_options = ['Sticky','Creamy','Egg White','Watery'];
 
     $scope.date = {
