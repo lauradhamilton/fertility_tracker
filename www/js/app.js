@@ -83,11 +83,6 @@ angular.module('starter', [
       templateUrl: '/templates/home.html',
       controller: 'HomeCtrl'
     })
-    .state('enter-data', {
-      url: '/enter-data',
-      templateUrl: '/templates/enter-data.html',
-      controller: 'EnterDataCtrl'
-    })
     $stateProvider
       .state('enter-data/:date', {
         url: '/enter-data/:date',
