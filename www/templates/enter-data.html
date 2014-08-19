@@ -1,7 +1,7 @@
 <div class="bar bar-header bar-stable">
-  <a class="button icon-left ion-chevron-left button-clear"></a>
+  <a class="button icon-left ion-chevron-left button-clear" ng-click="goToPreviousDate()"></a>
   <h1 class="title" ng-model="date">{{data_date | date:'fullDate'}}</h1>
-  <a class="button icon-right ion-chevron-right button-clear"></a>
+  <a class="button icon-right ion-chevron-right button-clear" ng-click="goToNextDate()"></a>
 </div>
 
 <ion-content>

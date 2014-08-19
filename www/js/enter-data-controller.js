@@ -6,6 +6,14 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
     $scope.data_date = new Date($stateParams.date);
     $scope.cm_options = ['Sticky','Creamy','Egg White','Watery'];
 
+    $scope.goToPreviousDate = function() {
+      $state.go('home');
+    }
+
+    $scope.goToNextDate = function() {
+      $state.go('home');
+    }
+
     $scope.date = {
       data_date: '',
       temperature: '',
