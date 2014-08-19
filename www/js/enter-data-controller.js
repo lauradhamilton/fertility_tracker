@@ -2,7 +2,7 @@
 
 angular.module('starter.controllers').controller('EnterDataCtrl',
 
-  function($scope, $q, $state, $ionicLoading, $firebase, FIREBASE_ROOT, Auth, User){
+  function($scope, $q, $state, $ionicLoading, $firebase, FIREBASE_ROOT, Auth, User, Signup){
     $scope.data_date = new Date();
     $scope.cm_options = ['Sticky','Creamy','Egg White','Watery'];
 
@@ -14,6 +14,7 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
 
     $scope.enter_daily_data = function() {
       User.enter_data(
+        12,
         Date(),
         $scope.date.temperature,
         $scope.date.opk,
