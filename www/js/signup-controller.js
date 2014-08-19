@@ -2,9 +2,11 @@
 
 angular.module('starter.controllers').controller('SignupCtrl',
  
-  function($scope, $q, $state, $ionicLoading, Auth, User, Signup) {
+  function($scope, $q, $state, $ionicLoading, $filter, Auth, User, Signup) {
 
     $scope.months_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,"25+"];
+
+    var today = $filter('date') (new Date(), 'yyyyMMdd');
 
     $scope.user = {
       email: '',
@@ -26,7 +28,7 @@ angular.module('starter.controllers').controller('SignupCtrl',
 
       createAuthUser().then(login)
                       .then(createMyAppUser)
-                      .then($state.go('enter-data'))
+                      .then($state.go('enter-data/:date', {date: today}))
                       .then($ionicLoading.hide())
                       .catch(handleError);
     };
