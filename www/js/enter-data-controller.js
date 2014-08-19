@@ -2,7 +2,7 @@
 
 angular.module('starter.controllers').controller('EnterDataCtrl',
 
-  function($scope, $q, $state, $ionicLoading, $firebase, $filter, FIREBASE_ROOT, Auth, User, Signup){
+  function($scope, $stateParams, $q, $state, $ionicLoading, $firebase, $filter, FIREBASE_ROOT, Auth, User, Signup){
     $scope.data_date = new Date();
     $scope.cm_options = ['Sticky','Creamy','Egg White','Watery'];
 

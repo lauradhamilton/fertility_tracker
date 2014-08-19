@@ -87,7 +87,14 @@ angular.module('starter', [
       url: '/enter-data',
       templateUrl: '/templates/enter-data.html',
       controller: 'EnterDataCtrl'
-    });
+    })
+    $stateProvider
+      .state('enter-data/:date', {
+        url: '/enter-data/:date',
+        templateUrl: '/templates/enter-data.html',
+        controller: 'EnterDataCtrl'
+      }
+    );
 
   $urlRouterProvider.otherwise('/splash');
 })
