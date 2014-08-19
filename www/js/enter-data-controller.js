@@ -6,11 +6,11 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
     
     var data_date_year = parseInt($stateParams.date.substring(0,4));
     var data_date_month = parseInt($stateParams.date.substring(5,6)) -1;
-    var data_date_day = parseInt($stateParams.date.substring(7,8));
+    var data_date_day = parseInt($stateParams.date.substring(6,9));
     $scope.data_date = new Date(data_date_year, data_date_month, data_date_day);
 
-    var previous_date = $filter('date') (new Date(data_date_year, data_date_month, data_date_day -1), 'yyyymmdd');
-    var next_date = $filter('date') (new Date(data_date_year, data_date_month, data_date_day + 1), 'yyyymmdd');
+    var previous_date = $filter('date') (new Date(data_date_year, data_date_month, data_date_day) - 1, 'yyyymmdd');
+    var next_date = $filter('date') (new Date(data_date_year, data_date_month, data_date_day) + 1, 'yyyymmdd');
 
     $scope.cm_options = ['Sticky','Creamy','Egg White','Watery'];
 
