@@ -3,7 +3,11 @@
 angular.module('starter.controllers').controller('EnterDataCtrl',
 
   function($scope, $stateParams, $q, $state, $ionicLoading, $firebase, $filter, FIREBASE_ROOT, Auth, User, Signup){
-    $scope.data_date = new Date($stateParams.date);
+    
+    var data_date_year = parseInt($stateParams.date.substring(0,4));
+    var data_date_month = parseInt($stateParams.date.substring(5,6)) -1;
+    var data_date_day = parseInt($stateParams.date.substring(7,8));
+    $scope.data_date = new Date(data_date_year, data_date_month, data_date_day);
 
     var previous_date = $scope.data_date - 1000*60*60*24;
     var next_date = $scope.data_date + 1000*60*60*24;
