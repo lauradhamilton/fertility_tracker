@@ -5,7 +5,7 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
   function($scope, $stateParams, $q, $state, $ionicLoading, $firebase, $filter, FIREBASE_ROOT, Auth, User, Signup){
     
     var data_date_year = parseInt($stateParams.date.substring(0,4));
-    var data_date_month = parseInt($stateParams.date.substring(5,6)) -1;
+    var data_date_month = parseInt($stateParams.date.substring(4,6)) -1;
     var data_date_day = parseInt($stateParams.date.substring(6,9));
     $scope.data_date = new Date(data_date_year, data_date_month, data_date_day);
 
