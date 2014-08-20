@@ -28,7 +28,8 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       data_date: '',
       temperature: '',
       opk: '',
-      cm: ''};
+      cm: '',
+      sex: '',};
 
     $scope.enter_daily_data = function() {
       var formattedDate = $filter('date') ($scope.data_date, 'yyyy-MM-dd');
@@ -36,7 +37,8 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
         formattedDate,
         $scope.date.temperature,
         $scope.date.opk,
-        $scope.date.cm
+        $scope.date.cm,
+        $scope.date.sex
       )
       $state.go('home');
     };
