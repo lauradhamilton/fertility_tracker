@@ -44,7 +44,9 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       $state.go('home');
     };
 
-    var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87' + '/' + formattedDate);
+    var currentUser = 'simplelogin:87';
+
+    var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + currentUser + '/' + formattedDate);
     var sync = $firebase(dateRef);
     var syncObject = sync.$asObject();
     syncObject.$bindTo($scope, "date");

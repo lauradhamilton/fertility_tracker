@@ -33,12 +33,6 @@ angular.module('starter.services').service('User',
       date.$update({temperature: temperature, opk: opk, cm: cm, sex: sex});
     };
 
-    this.find_data = function(date) {
-      var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87' + '/' + '2014-08-21' + '/temperature');
-      $scope.find_temperature = $firebase(dateRef);
-      return 12;
-    };
-
     this.recordPasswordChange = function() {
       var now = Math.floor(Date.now() / 1000);
       
