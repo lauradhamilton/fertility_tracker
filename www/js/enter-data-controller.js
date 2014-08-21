@@ -39,11 +39,13 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
         $scope.date.opk,
         $scope.date.cm,
         $scope.date.sex
-      )
+      );
       $state.go('home');
     };
 
-    $scope.find_temperature = 12;
-
+    $scope.find_temperature = function() {
+      var formattedDate = $filter('date') ($scope.data_date, 'yyyy-MM-dd');
+      return User.find_data(formattedDate);
+    };
   }
 );
