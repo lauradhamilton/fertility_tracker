@@ -2,7 +2,7 @@
 
 angular.module('starter.controllers').controller('EnterDataCtrl',
 
-  function($scope, $stateParams, $q, $state, $ionicLoading, $firebase, $filter, FIREBASE_ROOT, Auth, User, Signup){
+  function($scope, $stateParams, $q, $state, $ionicLoading, $firebase, $filter, FIREBASE_ROOT, Auth, User, Signup, $firebaseSimpleLogin){
     
     var data_date_year = parseInt($stateParams.date.substring(0,4));
     var data_date_month = parseInt($stateParams.date.substring(4,6));
@@ -44,6 +44,9 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       $state.go('home');
     };
 
+    Auth.getCurrentUser();
+    var currentUser = Auth.currentUser;
+    console.log(currentUser);
     var currentUser = 'simplelogin:87';
 
     var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + currentUser + '/' + formattedDate);
