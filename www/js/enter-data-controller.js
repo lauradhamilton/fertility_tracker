@@ -31,8 +31,9 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       cm: '',
       sex: ''};
 
+    var formattedDate = $filter('date') ($scope.data_date, 'yyyy-MM-dd');
+
     $scope.enter_daily_data = function() {
-      var formattedDate = $filter('date') ($scope.data_date, 'yyyy-MM-dd');
       User.enter_data(
         formattedDate,
         $scope.date.temperature,
@@ -43,7 +44,7 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       $state.go('home');
     };
 
-    var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87' + '/' + '2014-08-21' + '/temperature');
+    var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87' + '/' + formattedDate);
     var sync = $firebase(dateRef);
     var syncObject = sync.$asObject();
     syncObject.$bindTo($scope, "date");
