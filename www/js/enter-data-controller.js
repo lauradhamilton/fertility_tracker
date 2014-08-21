@@ -43,5 +43,7 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       $state.go('home');
     };
 
+    $scope.find_temperature = 12;
+
   }
 );
