@@ -44,14 +44,13 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       $state.go('home');
     };
 
-    Auth.getCurrentUser();
-    var currentUser = Auth.currentUser;
-    console.log(currentUser);
-    var currentUser = 'simplelogin:87';
-
-    var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + currentUser + '/' + formattedDate);
-    var sync = $firebase(dateRef);
-    var syncObject = sync.$asObject();
-    syncObject.$bindTo($scope, "date");
-  }
+    Auth.getCurrentUser().then(function() {
+        console.log(Auth.currentUser['uid']);
+      }).then(function() {
+          var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + Auth.currentUser['uid'] + '/' + formattedDate);
+          var sync = $firebase(dateRef);
+          var syncObject = sync.$asObject();
+          syncObject.$bindTo($scope, "date");
+          });
+    }
 );
