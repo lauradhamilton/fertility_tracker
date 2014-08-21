@@ -34,7 +34,8 @@ angular.module('starter.services').service('User',
     };
 
     this.find_data = function(date) {
-      var temperatureRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87' + '/' + date + '/' + 'temperature');
+      var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87' + '/' + '2014-08-21' + '/temperature');
+      $scope.find_temperature = $firebase(dateRef);
       return 12;
     };
 

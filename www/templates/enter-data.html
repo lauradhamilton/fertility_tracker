@@ -6,11 +6,11 @@
 
 <ion-content>
   <div style="margin-top: 80px">
-    Please enter your data!
+    Please enter your data! {{date.temperature}}
     <ul class="list">
       <label class="item item-input">
         <span class="input-label">Temperature (F)</span>
-        <input type="number" ng-model="date.temperature" ng-init="date.temperature=find_temperature()">
+        <input type="number" ng-model="date.temperature">
       </label>
       <ion-toggle ng-model="date.opk" toggle-class="toggle-calm">OPK</ion-toggle>
       <label class="item item-icon-right">

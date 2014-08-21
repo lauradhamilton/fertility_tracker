@@ -43,9 +43,9 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       $state.go('home');
     };
 
-    $scope.find_temperature = function() {
-      var formattedDate = $filter('date') ($scope.data_date, 'yyyy-MM-dd');
-      return User.find_data(formattedDate);
-    };
+    var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87' + '/' + '2014-08-21' + '/temperature');
+    var sync = $firebase(dateRef);
+    var syncObject = sync.$asObject();
+    syncObject.$bindTo($scope, "date");
   }
 );
