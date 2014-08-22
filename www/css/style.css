@@ -33,10 +33,16 @@ h1 {
 
 #fertilityChart {
   width: 500px;
-  height: 300px;
+  height: 500px;
   display: block;
+  border: none;
 } 
 
 .domain {
   fill-opacity: 0;
+  stroke-width: 0px;
+}
+
+.tick {
+  stroke-width: 0px;
 }
