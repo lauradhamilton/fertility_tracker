@@ -36,7 +36,7 @@ angular.module('starter.controllers').controller('CalendarCtrl',
       title: "Fertility",
       xCoord: {
         "label" : "Day",
-        "value" : "data_date",
+        "value" : "dayOfMonth",
         "min": 0,
         "max": 30
       },
