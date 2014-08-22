@@ -29,24 +29,24 @@ angular.module('starter.controllers').controller('CalendarCtrl',
     });
 
     // line graph
-    var firebaseRef = new Firebase("https://FireGrapherStocks.firebaseIO-demo.com/");
-    var fireGrapher1 = new FireGrapher(firebaseRef.child("stocks"), "#fertilityChart", {
+    var firebaseRef = new Firebase("https://fertility-tracker.firebaseio.com/users/simplelogin:141");
+    var fireGrapher1 = new FireGrapher(firebaseRef, "#fertilityChart", {
       type : "line",
-      path: "$symbol/*",
+      path: "$date",
       title: "Fertility",
       xCoord: {
         "label" : "Day",
-        "value" : "time",
+        "value" : "data_date",
         "min": 0,
         "max": 30
       },
       yCoord: {
         "label" : "Temperature",
-        "value" : "price",
+        "value" : "temperature",
         "min": 95,
         "max": 105
       },
-      series: "$symbol"
+      series: "$date"
     }); 
   }
 );
