@@ -22,14 +22,15 @@ angular.module('starter.controllers').controller('CalendarCtrl',
       .x(function(d) {return x(d.x);})
       .y(function(d) {return y(d.y);});
 
-    var userRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:141');
-    userRef.on('value', function (snapshot) {
+    var firebaseRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:141');
+    firebaseRef.on('value', function (snapshot) {
       var calendarInfo = snapshot.val();
       console.log(calendarInfo)
     });
 
     // line graph
-    var fireGrapher1 = new FireGrapher(userRef.child("stocks"), "#stockChart1", {
+    var firebaseRef = new Firebase("https://FireGrapherStocks.firebaseIO-demo.com/");
+    var fireGrapher1 = new FireGrapher(firebaseRef.child("stocks"), "#fertilityChart", {
       type : "line",
       path: "$symbol/*",
       title: "Price over Time (Stocks in USD)",

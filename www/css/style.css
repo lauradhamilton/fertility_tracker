@@ -27,20 +27,12 @@ h1 {
   line-height: 1;
 }
 
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
 #graphs > * {
   display: inline;
 }
 
-#stockChart1 {
+#fertilityChart {
   width: 500px;
   height: 300px;
-  border: solid 1px black;
   display: block;
-  font-family: 'Roboto Slab', serif;
 } 
