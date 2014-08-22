@@ -22,7 +22,7 @@ angular.module('starter.controllers').controller('CalendarCtrl',
       .x(function(d) {return x(d.x);})
       .y(function(d) {return y(d.y);});
 
-    var userRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:87');
+    var userRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + 'simplelogin:141');
     var calendarQuery = userRef.limit(10);
     calendarQuery.on('child_added', function (snapshot) {
       var calendarInfo = snapshot.val();
