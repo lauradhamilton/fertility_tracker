@@ -27,6 +27,27 @@ angular.module('starter.controllers').controller('CalendarCtrl',
       var calendarInfo = snapshot.val();
       console.log(calendarInfo)
     });
+
+    // line graph
+    var fireGrapher1 = new FireGrapher(userRef.child("stocks"), "#stockChart1", {
+      type : "line",
+      path: "$symbol/*",
+      title: "Price over Time (Stocks in USD)",
+      xCoord: {
+        "label" : "Time",
+        "value" : "time",
+        "min": 0,
+        "max": 30
+      },
+      yCoord: {
+        "label" : "Price",
+        "value" : "price",
+        "min": 40,
+        "max": 150
+      },
+      series: "$symbol"
+    });
+    
   }
 );
 

@@ -31,4 +31,16 @@ h1 {
   fill: none;
   stroke: steelblue;
   stroke-width: 1.5px;
+}
+
+#graphs > * {
+  display: inline;
+}
+
+#stockChart1 {
+  width: 500px;
+  height: 300px;
+  border: solid 1px black;
+  display: block;
+  font-family: 'Roboto Slab', serif;
 } 
