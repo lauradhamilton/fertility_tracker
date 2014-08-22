@@ -33,22 +33,21 @@ angular.module('starter.controllers').controller('CalendarCtrl',
     var fireGrapher1 = new FireGrapher(firebaseRef.child("stocks"), "#fertilityChart", {
       type : "line",
       path: "$symbol/*",
-      title: "Price over Time (Stocks in USD)",
+      title: "Fertility",
       xCoord: {
-        "label" : "Time",
+        "label" : "Day",
         "value" : "time",
         "min": 0,
         "max": 30
       },
       yCoord: {
-        "label" : "Price",
+        "label" : "Temperature",
         "value" : "price",
-        "min": 40,
-        "max": 150
+        "min": 95,
+        "max": 105
       },
       series: "$symbol"
-    });
-    
+    }); 
   }
 );
 
