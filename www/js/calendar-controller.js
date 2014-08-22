@@ -8,7 +8,6 @@ angular.module('starter.controllers').controller('CalendarCtrl',
     var fireGrapher1 = new FireGrapher(firebaseRef, "#fertilityChart", {
       type : "line",
       path: "$date",
-      title: "Fertility",
       xCoord: {
         "label" : "Day",
         "value" : "dayOfMonth",
