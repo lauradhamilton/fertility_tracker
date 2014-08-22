@@ -21,7 +21,7 @@ angular.module('starter.controllers').controller('CalendarCtrl',
         "min": 95,
         "max": 105
       },
-      series: "$date"
+      series: "$user"
     }); 
   }
 );
