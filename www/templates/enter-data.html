@@ -20,6 +20,13 @@
         <span class="input-label">Cervical Fluid</span>
           <i class="icon ion-ios7-arrow-down"></i>
       </label>
+      <label class="item item-icon-right">
+        <select novalidate="" ng-model="date.period" ng-options="period_options for period_options in period_options" style="opacity:0; width:100%; position:absolute; z-index: 100">
+          <option value=""></option>
+        </select>
+        <span class="input-label">Period</span>
+          <i class="icon ion-ios7-arrow-down"></i>
+      </label>
       <ion-toggle ng-model="date.sex" toggle-class="toggle-calm">Sex</ion-toggle>
       <label class="item item-input">
         <button class ="button button-block button-energized" style="margin-right: 15px" ng-click="enter_daily_data()">

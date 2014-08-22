@@ -27,11 +27,11 @@ angular.module('starter.services').service('User',
         });
     };
 
-    this.enter_data = function(date, temperature, opk, cm, sex) {
+    this.enter_data = function(date, temperature, opk, cm, period, sex) {
       var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + Auth.currentUser.uid + '/' + date);
       var firebaseDate = $firebase(dateRef);
       var dayOfMonth = date.slice(-2);
-      firebaseDate.$update({data_date:date, dayOfMonth: dayOfMonth, temperature: temperature, opk: opk, cm: cm, sex: sex});
+      firebaseDate.$update({data_date:date, dayOfMonth: dayOfMonth, temperature: temperature, opk: opk, cm: cm, period: period, sex: sex});
     };
 
     this.recordPasswordChange = function() {

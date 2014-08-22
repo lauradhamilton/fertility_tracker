@@ -14,6 +14,8 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
 
     $scope.cm_options = ['Sticky','Creamy','Egg White','Watery'];
 
+    $scope.period_options = ['Spotting', 'Light', 'Medium', 'Heavy'];
+
     $scope.goToPreviousDate = function() {
       $state.go('enter-data/:date', {date: previous_date});
       $stateParams.date = $scope.data_date;
@@ -29,6 +31,7 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
       temperature: '',
       opk: '',
       cm: '',
+      period: '',
       sex: ''};
 
     var formattedDate = $filter('date') ($scope.data_date, 'yyyy-MM-dd');
@@ -39,6 +42,7 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
         $scope.date.temperature,
         $scope.date.opk,
         $scope.date.cm,
+        $scope.date.period,
         $scope.date.sex
       );
       $state.go('home');

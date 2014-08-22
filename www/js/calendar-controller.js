@@ -20,7 +20,8 @@ angular.module('starter.controllers').controller('CalendarCtrl',
         "min" : 96,
         "max" : 0
       },
-      series: "$user"
+      series: "$user",
+      opk: "opk"
     }); 
   }
 );
