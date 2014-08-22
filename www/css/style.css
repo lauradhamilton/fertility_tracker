@@ -48,7 +48,7 @@ h1 {
 }
 
 .fg-area {
-  fill-opacity: 0;
+  fill-opacity: 0.1;
   stroke-width: .5px;
 }
 
