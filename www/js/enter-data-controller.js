@@ -45,8 +45,6 @@ angular.module('starter.controllers').controller('EnterDataCtrl',
     };
 
     Auth.getCurrentUser().then(function() {
-        console.log(Auth.currentUser['uid']);
-      }).then(function() {
           var dateRef = new Firebase('https://fertility-tracker.firebaseio.com/users/' + Auth.currentUser['uid'] + '/' + formattedDate);
           var sync = $firebase(dateRef);
           var syncObject = sync.$asObject();
