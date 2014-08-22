@@ -269,13 +269,13 @@ var FireGrapherParser = function(firebaseRef, config, grapher) {
             xCoord = (_grapher.data[series] ? _grapher.data[series].streamCount : 0);
           }
           else {
-            xCoord = parseInt(data[_config.xCoord.value]);
+            xCoord = parseFloat(data[_config.xCoord.value]);
           }
           newDataPoint = {
             "series": series,
             "path": pathDict.path + childSnapshot.name(),
             "xCoord": xCoord,
-            "yCoord": data[_config.yCoord.value]
+            "yCoord": parseFloat(data[_config.yCoord.value])
           };
           break;
       }
@@ -605,7 +605,7 @@ var D3Graph = function(config, cssSelector) {
   this.init = function() {
     this.data = {};
     _xDomain = { min: 0, max: 0 };
-    _yDomain = { min: 95.0, max: 0 };
+    _yDomain = { min: 95, max: 0 };
     _numSeries = 0;
 
     if (_config.type === "bar") {
