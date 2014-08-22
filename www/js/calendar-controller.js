@@ -11,14 +11,10 @@ angular.module('starter.controllers').controller('CalendarCtrl',
       xCoord: {
         "label" : "Day",
         "value" : "dayOfMonth",
-        "min": 0,
-        "max": 30
       },
       yCoord: {
         "label" : "Temperature",
         "value" : "temperature",
-        "min": 95,
-        "max": 105
       },
       series: "$user"
     }); 
