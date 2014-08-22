@@ -36,3 +36,7 @@ h1 {
   height: 300px;
   display: block;
 } 
+
+.domain {
+  fill-opacity: 0;
+}
