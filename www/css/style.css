@@ -46,3 +46,13 @@ h1 {
 .tick {
   stroke-width: 0px;
 }
+
+.fg-area {
+  fill-opacity: 0;
+  stroke-width: .5px;
+}
+
+.fg-marker {
+  stroke-width: 0px;
+}
+
